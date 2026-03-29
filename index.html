@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTAI AI Protocol</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#05070d;
+    color:#e5e7eb;
+}
+
+body::before {
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background: radial-gradient(circle at 50% 0%, rgba(77,166,255,0.15), transparent);
+    z-index:-1;
+}
+
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+}
+
+.logo {
+    display:flex;
+    align-items:center;
+    font-family:'Orbitron';
+    font-size:24px;
+    color:transparent;
+    background:linear-gradient(90deg,#4da6ff,#8a7dff);
+    -webkit-background-clip:text;
+}
+
+.logo img {
+    width:40px;
+    height:40px;
+    margin-right:10px;
+}
+
+a {
+    color:#aaa;
+    margin-left:20px;
+    text-decoration:none;
+}
+
+header {
+    text-align:center;
+    padding:120px 20px;
+}
+
+header h1 {
+    font-size:70px;
+    font-family:'Orbitron';
+    background:linear-gradient(90deg,#4da6ff,#8a7dff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+header .header-logo {
+    width:80px;
+    margin-bottom:20px;
+}
+
+.btn {
+    padding:12px 25px;
+    background:linear-gradient(90deg,#4da6ff,#6c63ff);
+    border-radius:10px;
+    color:white;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:15px;
+}
+
+.section {
+    padding:80px 20px;
+    text-align:center;
+}
+
+.step {
+    max-width:600px;
+    margin:10px auto;
+    padding:15px;
+    border-left:3px solid #4da6ff;
+    background:rgba(255,255,255,0.02);
+    border-radius:10px;
+}
+
+.ai-box {
+    max-width:600px;
+    margin:auto;
+}
+
+.ai-box input {
+    width:70%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#111;
+    color:white;
+}
+
+.ai-box button {
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#4da6ff,#6c63ff);
+    color:white;
+}
+
+iframe {
+    border-radius:12px;
+}
+
+footer {
+    text-align:center;
+    padding:30px;
+    color:#666;
+}
+
+/* POPUP */
+.popup {
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#0f172a;
+    padding:12px 18px;
+    border-radius:10px;
+    border:1px solid rgba(77,166,255,0.3);
+    display:none;
+    animation:fade 0.5s;
+}
+
+@keyframes fade {
+    from {opacity:0; transform:translateY(20px);}
+    to {opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+<nav>
+<div class="logo">
+  <img src="logo1.png" alt="NEXTAI Logo" style="width:180px;height:70px;margin-right:5px;vertical-align:middle;">
+</div>
+<div>
+<a href="#about">About</a>
+<a href="#roadmap">Roadmap</a>
+<a href="#ai">AI</a>
+</div>
+</nav><header>
+<img src="logo.png" alt="NEXTAI" class="header-logo" style="width:330px;margin-bottom:1px;">
+<h1>NEXTAI</h1>
+<p>The Intelligence Layer of the Future Economy</p>
+<a href="https://pump.fun" target="_blank" class="btn">Buy Token</a>
+
+
+<br><br>
+
+<div>
+<span id="ca">0xYOURCONTRACTADDRESS</span>
+<button onclick="copyCA()">Copy</button>
+</div>
+
+<p id="msg"></p>
+</header>
+
+<section class="section" id="about">
+<h2>Philosophy</h2>
+<p>Where artificial intelligence meets decentralized capital.</p>
+</section>
+
+<section class="section">
+<h2>Story</h2>
+<p>Every technological revolution creates new winners. NEXTAI exists before the wave.</p>
+</section>
+
+<section class="section" id="roadmap">
+<h2>Roadmap</h2>
+<div class="step">Phase 1 — Signal Detection</div>
+<div class="step">Phase 2 — Market Awareness</div>
+<div class="step">Phase 3 — Expansion</div>
+<div class="step">Phase 4 — AI Ecosystem</div>
+</section>
+
+<section class="section">
+<h2>Whitepaper</h2>
+<p>NEXTAI is a narrative-driven AI token capturing early market intelligence.</p>
+</section>
+
+<section class="section">
+<h2>Live Chart</h2>
+<iframe src="https://dexscreener.com/solana/YOURPAIRADDRESS?embed=1&theme=dark" width="100%" height="500"></iframe>
+</section>
+
+<section class="section">
+<h2>Community</h2>
+<a href="https://t.me/solidityproject" class="btn">Telegram</a>
+<a href="https://x.com/solidity_core" class="btn">Twitter / X</a>
+</section>
+
+<section class="section" id="ai">
+<h2>NEXTAI Agent</h2>
+<div class="ai-box">
+<input id="input" placeholder="Ask NEXTAI...">
+<button onclick="askAI()">Ask</button>
+<p id="res"></p>
+</div>
+</section>
+
+<div class="popup" id="popup"></div>
+
+<footer>
+© 2026 NEXTAI
+</footer>
+
+<script>
+function copyCA(){
+    let text = document.getElementById("ca").innerText;
+    navigator.clipboard.writeText(text);
+    document.getElementById("msg").innerHTML="Copied 🚀";
+}
+
+/* TYPE EFFECT */
+function typeEffect(text){
+    let res = document.getElementById("res");
+    res.innerHTML="";
+    let i=0;
+    function typing(){
+        if(i<text.length){
+            res.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing,20);
+        }
+    }
+    typing();
+}
+
+/* AI */
+function askAI(){
+    let input = document.getElementById("input").value.toLowerCase();
+    let response="Scanning...";
+
+    if(input.includes("buy")) response="Entry signal detected 🚀";
+    else if(input.includes("sell")) response="Too early to exit ⚠️";
+    else if(input.includes("whale")) response="Whale accumulation detected 🐋";
+    else response="Early opportunity phase 📈";
+
+    typeEffect(response);
+}
+
+/* POPUP WHALE */
+function showPopup(text){
+    let popup=document.getElementById("popup");
+    popup.innerHTML=text;
+    popup.style.display="block";
+
+    setTimeout(()=>{
+        popup.style.display="none";
+    },4000);
+}
+
+/* FAKE TX */
+function randomTx(){
+    let sol=(Math.random()*5+1).toFixed(2);
+    let texts=[
+        "🐋 Whale bought "+sol+" SOL",
+        "🚀 New buyer entered",
+        "📈 Volume increasing",
+        "🔥 FOMO building"
+    ];
+    showPopup(texts[Math.floor(Math.random()*texts.length)]);
+}
+
+/* AUTO */
+setInterval(randomTx,7000);
+
+window.onload=function(){
+    typeEffect("NEXTAI initialized... 🚀");
+}
+</script>
+
+</body>
+</html>
