@@ -11,6 +11,65 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+
+/* AI PULSE BACKGROUND */
+.ai-pulse {
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(77,166,255,0.3), transparent);
+    filter:blur(60px);
+    animation:pulseMove 12s infinite alternate;
+    z-index:-3;
+}
+
+@keyframes pulseMove {
+    0% {transform:translate(0,0) scale(1);}
+    50% {transform:translate(200px,100px) scale(1.2);}
+    100% {transform:translate(-150px,200px) scale(0.9);}
+}
+
+/* AI TEXT GLOW */
+h1::after {
+    content:"";
+    display:block;
+    width:100%;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#4da6ff,transparent);
+    margin-top:10px;
+    animation:scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% {opacity:0;}
+    50% {opacity:1;}
+    100% {opacity:0;}
+}
+
+/* NEURAL DOTS */
+.ai-dots {
+    position:fixed;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:-2;
+}
+
+.ai-dots span {
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:#4da6ff;
+    border-radius:50%;
+    animation:floatDots linear infinite;
+}
+
+@keyframes floatDots {
+    from {transform:translateY(100vh);}
+    to {transform:translateY(-10vh);}
+}
+
 body {
     margin:0;
     font-family:'Inter',sans-serif;
@@ -151,6 +210,8 @@ footer {
 </head>
 
 <body>
+<div class="ai-pulse"></div>
+<div class="ai-dots" id="dots"></div>
 <nav>
 <div class="logo">
   <img src="logo1.png" alt="NEXTAI Logo" style="width:180px;height:70px;margin-right:5px;vertical-align:middle;">
@@ -290,6 +351,27 @@ setInterval(randomTx,7000);
 window.onload=function(){
     typeEffect("NEXTAI initialized... 🚀");
 }
+
+/* GENERATE AI DOTS */
+const dotsContainer = document.getElementById("dots");
+
+for(let i=0;i<40;i++){
+    let dot=document.createElement("span");
+    dot.style.left=Math.random()*100+"%";
+    dot.style.animationDuration=(Math.random()*10+5)+"s";
+    dot.style.opacity=Math.random();
+    dotsContainer.appendChild(dot);
+}
+
+/* AI SCANNING EFFECT TEXT */
+setInterval(()=>{
+    let title=document.querySelector("h1");
+    title.style.textShadow="0 0 60px #4da6ff";
+    setTimeout(()=>{
+        title.style.textShadow="0 0 20px #4da6ff";
+    },500);
+},3000);
+
 </script>
 
 </body>
