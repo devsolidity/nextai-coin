@@ -229,15 +229,59 @@ footer {
 
 
 <br><br>
-<div style="display:flex;justify-content:center;align-items:center;gap:8px;padding:5px;">
+<style>
+  body{
+    margin:0;
+    background:#0a0a0a;
+    font-family:Arial, sans-serif;
+    color:#00ffcc;
+  }
+
+  .ca-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    margin:20px auto;
+    width:fit-content;
+    background:rgba(255,255,255,0.05);
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,255,204,0.2);
+  }
+
+  #shortCA{
+    font-weight:bold;
+    font-size:16px;
+    letter-spacing:1px;
+  }
+
+  button{
+    border:none;
+    background:#00ffcc;
+    color:#000;
+    padding:5px 8px;
+    border-radius:6px;
+    cursor:pointer;
+    transition:0.2s;
+  }
+
+  button:hover{
+    background:#00ccaa;
+  }
+</style>
+
+<div class="ca-box">
   <span id="shortCA"></span>
   <button onclick="copyCA()">Copy📋</button>
 </div>
-<h2>Contract Address</h2>
+
 <script>
 const fullCA="0xYOURCONTRACTADDRESS";
-document.getElementById("shortCA").innerText=
+
+document.getElementById("shortCA").innerText =
   fullCA.slice(0,6)+"..."+fullCA.slice(-4);
+
 function copyCA(){
   navigator.clipboard.writeText(fullCA);
 }
