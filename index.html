@@ -80,15 +80,22 @@ body{
   font-family:Arial, sans-serif;
 }
 
-/* 🔥 semua teks gradient biru-ungu */
+/* 🔥 semua teks putih glossy */
 h1, h2, h3, p, span, a{
-  background:linear-gradient(90deg, #00eaff, #8a2be2);
+  color:#ffffff;
+  background:linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #e0e0e0 40%,
+    #ffffff 60%,
+    #bfbfbf 100%
+  );
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  
+
   text-shadow:
-    0 0 5px rgba(0,234,255,0.6),
-    0 0 10px rgba(138,43,226,0.6);
+    0 0 5px rgba(255,255,255,0.4),
+    0 0 10px rgba(255,255,255,0.2);
 }
 
 body:before {
