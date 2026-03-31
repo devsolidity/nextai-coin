@@ -11,6 +11,25 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+.glossy-text{
+  background:linear-gradient(
+    120deg,
+    #ffffff 0%,
+    #bbbbbb 40%,
+    #ffffff 60%,
+    #bbbbbb 100%
+  );
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 3s linear infinite;
+}
+
+@keyframes shine{
+  to{
+    background-position:200% center;
+  }
+}
 
 /* AI PULSE BACKGROUND */
 .ai-pulse {
