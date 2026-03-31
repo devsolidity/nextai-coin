@@ -229,13 +229,24 @@ footer {
 
 
 <br><br>
-<div style="display:flex;align-items:center;gap:10px;">
-  <span id="shortCA"></span>
-  <button onclick="copyCA()">📋</button>
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+  gap:15px;
+">
+  <h2>Contract Address</h2>
+
+  <div style="display:flex;align-items:center;gap:10px;">
+    <span id="shortCA" style="font-weight:bold;font-size:20px;"></span>
+    <button onclick="copyCA()" style="cursor:pointer;">Copy📋</button>
+  </div>
 </div>
 
 <script>
-const fullCA = "0xYOURCONTRACTADDRESS";
+const fullCA = "Comingsoon..";
 
 function shortenCA(addr) {
   return addr.slice(0,6) + "..." + addr.slice(-4);
