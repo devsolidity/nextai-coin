@@ -219,6 +219,22 @@ button:hover{
     display:inline-block;
     margin-top:15px;
 }
+  button.glossy-text{
+  background: transparent; /* transparan */
+  color: #ffffff;          /* teks putih glossy */
+  border: 2px solid #00eaff; /* border biru neon */
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* efek hover */
+button.glossy-text:hover{
+  background: rgba(0,234,255,0.1); /* glow tipis saat hover */
+  box-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
 
 .section {
     padding:80px 20px;
@@ -285,8 +301,12 @@ footer {
 }
 </style>
 </head>
-
 <body>
+<div style="text-align:center; margin-top:15px;">
+  <button class="glossy-text">Buy Token</button>
+  <button class="glossy-text">Telegram</button>
+  <button class="glossy-text">Twitter</button>
+</div>
 <div class="ai-pulse"></div>
 <div class="ai-dots" id="dots"></div>
 <nav>
@@ -298,7 +318,8 @@ footer {
 <a href="#roadmap">Roadmap</a>
 <a href="#ai">AI</a>
 </div>
-</nav><header>
+</nav>
+  <header>
 <img src="logo.png" alt="NEXTAI" class="header-logo" style="width:330px;margin-bottom:1px;">
 <h1>NEXTAI</h1>
 <p>The Intelligence Layer of the Future Economy</p>
