@@ -479,7 +479,20 @@ h2::after{
     0 0 20px #00eaff,
     0 0 40px rgba(0,234,255,0.5);
   }
-  
+  /* 🔥 FIX TOMBOL BIAR TIDAK KEKENA TEXT GLOSSY */
+.btn {
+  -webkit-text-fill-color: #ffffff !important;
+  background: rgba(255,255,255,0.05) !important;
+  color: #ffffff !important;
+  background-clip: unset !important;
+
+  text-shadow:
+    0 0 5px rgba(255,255,255,0.9),
+    0 0 10px rgba(0,255,255,0.7);
+  }
+.btn, .btn:link, .btn:visited {
+  color:#fff !important;
+                           }
 </style>
 </head>
 <body>
@@ -580,11 +593,6 @@ function copyCA(){
 </footer>
 
 <script>
-function copyCA(){
-    let text = document.getElementById("ca").innerText;
-    navigator.clipboard.writeText(text);
-    document.getElementById("msg").innerHTML="Copied 🚀";
-}
 
 /* TYPE EFFECT */
 function typeEffect(text){
@@ -666,6 +674,17 @@ setInterval(()=>{
     },500);
 },3000);
 
+</script>
+<script>
+const fullCA = "0xYOURCONTRACTADDRESS";
+
+document.getElementById("shortCA").innerText =
+  fullCA.slice(0,6)+"..."+fullCA.slice(-4);
+
+function copyCA(){
+  navigator.clipboard.writeText(fullCA);
+  document.getElementById("msg").innerText = "Copied 🚀";
+}
 </script>
 
 </body>
