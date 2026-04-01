@@ -330,6 +330,114 @@ footer {
     from {opacity:0; transform:translateY(20px);}
     to {opacity:1; transform:translateY(0);}
 }
+/* NEON BUTTON */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(0,255,255,0.4),
+    transparent
+  );
+  top: -50%;
+  left: -50%;
+  transform: rotate(25deg);
+  transition: 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 30px #00eaff;
+}
+
+/* BACKGROUND HIDUP */
+body::after{
+  content:'';
+  position:fixed;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle at 30% 70%, rgba(138,125,255,0.15), transparent),
+              radial-gradient(circle at 70% 30%, rgba(0,234,255,0.15), transparent);
+  z-index:-2;
+  animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(-50px,50px);}
+}
+
+/* CARD FLOAT */
+.section-box:hover{
+  transform: translateY(-5px) scale(1.01);
+  box-shadow:
+    0 0 20px #00eaff,
+    0 0 40px rgba(0,234,255,0.5);
+      }
+  .btn {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  }
+/* 🔥 BACKGROUND FLOW */
+body::after{
+  content:'';
+  position:fixed;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle at 30% 70%, rgba(138,125,255,0.15), transparent),
+              radial-gradient(circle at 70% 30%, rgba(0,234,255,0.15), transparent);
+  z-index:-2;
+  animation: bgMove 10s infinite alternate;
+}
+
+@keyframes bgMove{
+  0%{transform:translate(0,0);}
+  100%{transform:translate(-50px,50px);}
+  }
+  /* 🔥 AI SCAN TEXT */
+h2 {
+  position: relative;
+}
+
+h2::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:2px;
+  bottom:-5px;
+  left:0;
+  background:linear-gradient(90deg,transparent,#00eaff,transparent);
+  animation: scan 3s infinite;
+}
+
+@keyframes scan{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+  }
+.section-box{
+  transition:0.4s;
+}
+
+.section-box:hover{
+  transform: translateY(-5px) scale(1.01);
+  box-shadow:
+    0 0 20px #00eaff,
+    0 0 40px rgba(0,234,255,0.5);
+  }
+  
 </style>
 </head>
 <body>
@@ -513,17 +621,19 @@ function showPopup(text){
     },4000);
 }
 
-/* FAKE TX */
 function randomTx(){
-    let sol=(Math.random()*5+1).toFixed(2);
+    let sol=(Math.random()*3+0.5).toFixed(2);
+    let names=["User","Trader","Whale","Anon"];
+    
     let texts=[
-        "🐋 Whale bought "+sol+" SOL",
-        "🚀 New buyer entered",
-        "📈 Volume increasing",
-        "🔥 FOMO building"
+        "🐋 "+names[Math.floor(Math.random()*names.length)]+" bought "+sol+" SOL",
+        "🚀 New wallet entered",
+        "📈 Volume spike detected",
+        "🔥 Trending now"
     ];
+    
     showPopup(texts[Math.floor(Math.random()*texts.length)]);
-}
+  }
 
 /* AUTO */
 setInterval(randomTx,7000);
