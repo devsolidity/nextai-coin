@@ -11,6 +11,48 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+body {
+  margin:0;
+  padding:0; /* ✅ sudah benar */
+  background:#0a0a0a;
+  font-family:Arial, sans-serif;
+  color:#00ffcc;
+}
+
+.ca-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  margin:20px auto;
+  width:fit-content;
+  background:rgba(255,255,255,0.05);
+  border-radius:12px;
+  box-shadow:0 0 10px rgba(0,255,204,0.2);
+}
+
+#shortCA{
+  color:#00eaff;
+  text-shadow:
+    0 0 5px #00eaff,
+    0 0 10px #00eaff,
+    0 0 20px #00eaff;
+}
+
+/* 🔥 lebih aman pakai class biar nggak ganggu tombol lain */
+.copy-btn{
+  background:#00eaff;
+  color:#000;
+  border:none;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.copy-btn:hover{
+  background:#00bcd4;
+}
   .glow-btn {
   background: rgba(255, 255, 255, 0.08); /* transparan */
   border: 1px solid rgba(0, 255, 255, 0.5);
@@ -460,45 +502,7 @@ h2::after{
 <a href="https://pump.fun" target="_blank" class="btn">Buy Token</a>
 
 
-<br><br>
-<style>
-  body{
-    margin:0;
-    pedding:0;
-    background:#0a0a0a;
-    font-family:Arial, sans-serif;
-    color:#00ffcc;
-  }
-
-  .ca-box{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-    padding:8px 12px;
-    margin:20px auto;
-    width:fit-content;
-    background:rgba(255,255,255,0.05);
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,255,204,0.2);
-  }
-
-  #shortCA{
-  color:#00eaff;
-  text-shadow:0 0 5px #00eaff,
-              0 0 10px #00eaff,
-              0 0 20px #00eaff;
-    }
-
-  button{
-  background:#00eaff;
-  color:#000;
-}
-
-button:hover{
-  background:#00bcd4;
-    }
-</style>
+<br>
 
 <div class="ca-box">
   <span id="shortCA"></span>
