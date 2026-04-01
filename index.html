@@ -11,6 +11,37 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+  .glow-btn {
+  background: rgba(255, 255, 255, 0.08); /* transparan */
+  border: 1px solid rgba(0, 255, 255, 0.5);
+  padding: 12px 20px;
+  border-radius: 12px;
+
+  color: #ffffff; /* PUTIH TERANG */
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+
+  backdrop-filter: blur(6px);
+
+  text-shadow: 
+    0 0 5px rgba(255,255,255,0.8),
+    0 0 10px rgba(0,255,255,0.6); /* 🔥 bikin glowing */
+
+  box-shadow: 
+    0 0 10px rgba(0,255,255,0.3),
+    inset 0 0 10px rgba(0,255,255,0.2);
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.glow-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 20px rgba(0,255,255,0.8),
+    inset 0 0 15px rgba(0,255,255,0.5);
+    }
 .glossy-text{
   background:linear-gradient(
     120deg,
